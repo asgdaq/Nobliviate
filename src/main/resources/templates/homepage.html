@@ -1,0 +1,297 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nobliviate</title>
+</head>
+<style>
+
+
+ul {
+  list-style-type: none;
+
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+<body>
+<h1>Nobliviate</h1>
+<ul>
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="create.html">Create</a></li>
+    <li><a href="play.html">Play</a></li>
+
+    <li>
+        <a href="log.html">
+            <div th:if="${logat == null}">
+                You/
+            </div>
+            <p th:unless="${logat == null}">
+                <p th:text="${name}" th:value="${name}"></p>
+            </p>
+        </a>
+    </li>
+</ul>
+<br><br>
+<div style="background-color:#FFB6C1;
+            position:relative;width:600px;height: 300px;">
+    <br>
+    <h2>Esti pregatit ?</h2>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada
+        fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies
+        eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+        Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet
+        est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+        commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt
+        condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.
+        Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus,
+        neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+        Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+</div>
+<img th:src="@{image-removebg-preview.png}" style="position:relative; top:-325px;left:800px;"/>
+
+
+</body>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nobliviate</title>
+    <link rel="icon" href="nobliviateph.png" type="image/png">
+    <style>
+        body {
+            font-family:'Times new Roman';
+            background-color: #FEFAE0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #555;
+        }
+
+        div.content-container {
+            background-color: #DDA15E;
+            position: relative;
+            width: 20%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img.nobliviate-image {
+            position: relative;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 100%;
+            height: auto;
+        }
+              button {
+            background-color:#1D2323;
+            border: none;
+            color: #A84C29;
+            padding: 12px 29px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 7px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<p style ="/*background-color:#283618;*/ font-family: 'Brush Script MT',
+cursive;font-size:75px;position:relative;top:-75px;">  Nobliviate</p>
+
+<ul style ="background-color:#000000;
+position:relative;top:-150px;">
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="/create.html">Create</a></li>
+    <li><a href="/play.html">Play</a></li>
+    <li>
+        <a href="log.html">
+
+            <div th:if="${logat == null}">You</div>
+            <div th:if="${logat != null}"><i><span th:text="${name}"></span></i></div>
+
+        </a>
+    </li>
+</ul>
+
+th:text="${name}" th:value="${name}" style="color:white"
+<div class="content-container"
+     style="position:relative;
+     top:-100px;left:-500px;">
+    <h2 style="text-align:center;">Play and Create</h2>
+    <hr>
+    <p style="text-align:center;font-size:110%;">
+        Use you power, imagination and creativity to create and to structure knowledge and information
+
+        <br><br>
+
+        <button style="color:#DDA15E">
+            Build Here
+        </button>
+
+        <br>
+    </p>
+</div>
+
+<div class="content-container"
+     style="position:relative;
+     top:-450px;left:0px;background-color:#A84C29;color:white">
+    <h2 style="text-align:center;">Limitless Learning</h2>
+    <hr>
+    <p style="text-align:center;font-size:110%;font-family:Times new Roman">
+
+        Made for memorization, <i>Nobliviate</i> stores knowledge on various subjects:<br><br>
+        Chemistry, foreign languages, mathematics, history, etc...
+        <br><br>
+
+        <button >
+            Discover Now
+        </button>
+
+        <br>
+
+
+    </p>
+</div>
+<div class="content-container"
+     style="position:relative;
+     top:-700px;left:500px;">
+    <h2 style="text-align:center;">You can change the world</h2>
+    <hr>
+    <p style="text-align:center;font-size:110%;">
+        Be part of a community. Join a target. Spread knowledge and make magic happened leveling up...
+
+        <br>
+        <br>
+        <button  style="color:#DDA15E">
+            Join Us
+        </button>
+    </p>
+</div>
+
+<img th:src="@{image-removebg-preview.png}" class="nobliviate-image" />-
+
+</body>
+</html>
+--->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nobliviate</title>
+        <link rel="stylesheet" th:href="@{Home.css}" />
+        <link rel="stylesheet" th:href="@{Menu.css}" />
+
+        <link href="https://fonts.cdnfonts.com/css/nuixyber-pro-convert" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <p style=" font-family: 'Nuixyber Pro Convert', sans-serif;
+                       font-size:750%; text-align:center;position:relative;top:-100px;">
+            NOBLIVIATE
+        </p>
+
+        <img th:src="@{image-removebg-previewCEAS.png}"
+             style="position:relative;left:550px;
+                    top:-150px;height:400px;weight:400px;"/>
+
+        <div style="position:relative;top:30px;">
+            <button class="Home" style="position:relative;top:-520px;left:150px;
+                  font-family: 'Nuixyber Pro Convert', sans-serif;" id="Home">
+                    Home page
+            </button>
+
+            <button style="position:relative;top:-320px;left:-50px;
+                  font-family: 'Nuixyber Pro Convert', sans-serif;
+                       font-size:155%;" id="Create">
+                <a href="create.html">
+                Create a quiz
+                </a>
+            </button>
+
+            <button style="position:relative;top:-520px;left:750px;
+                  font-family: 'Nuixyber Pro Convert', sans-serif;
+                       font-size:155%;" id="Play">
+                <a href="play.html">
+                    Play a quiz
+                </a>
+            </button>
+
+            <button style="position:relative;top:-320px;left:550px;
+                  font-family: 'Nuixyber Pro Convert', sans-serif;
+                       font-size:155%;" id="Log">
+                <a href="log.html">
+
+                    <div th:if="${logat == null}">Profile</div>
+                    <div th:if="${logat != null}"><i><b><span th:text="${name}"></span></b></i></div>
+
+                </a>
+            </button>
+        </div>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,298 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Hi!</h1>
+<p>Aceasta e pagina profilului tau :)</p>
+
+
+<p>Mai jos va gasiti listele PRIVATE </p>
+
+<hr>
+<form action="/privatelist" method="POST">
+    <div th:each="item : ${list}">
+        <button th:text="${item}" th:value="${item}" name="privatelist"></button>
+        <hr>
+    </div>
+</form>
+
+<form action="/logOut" method="POST">
+    <button>
+        Log out
+    </button>
+</form>
+
+<form action="/back" method="POST">
+    <button>
+        <- Back
+    </button>
+</form>
+
+
+<button id="remove">Remove list</button>
+<div id="mask1" class="hidden"></div>
+<section id="modal1" class="hidden" style="background: #626567;">
+
+    <form action="/clearList" method="POST">
+        <label for="name1"></label>
+        <input type="text" name="name1" id="name1">
+
+        <input type="submit" value="submit">
+    </form>
+
+
+</section>
+
+<script>
+      const btn31 = document.getElementById('remove');
+      const mask1 = document.getElementById('mask1');
+      const modal1 = document.getElementById('modal1');
+      btn31.addEventListener('click', () => {  mask1.classList.remove('hidden');
+      modal1.classList.remove('hidden');});
+      mask1.addEventListener('click', () => {  mask1.classList.add('hidden');
+      modal1.classList.add('hidden');});
+</script>
+
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator page</title>
+    <link rel="icon" href="nobliviateph.png" type="image/png">
+    <link rel="stylesheet"  th:href="@{style.css}"> <!-- Include your external stylesheet if needed -->
+    <link rel="stylesheet" th:href="@{Menu.css}" />
+    <link href="https://fonts.cdnfonts.com/css/nuixyber-pro-convert" rel="stylesheet">
+    <link href="/static/PlayQuiz.css" rel="stylesheet">
+
+    <style>
+        body {
+             font-family: 'Garamond', serif;
+           background-color:#BAE1FF;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            background-color:  #DDA15E;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        p {
+            text-align: center;
+        }
+
+      hr{
+     border-top: .25px solid #CCCCFF;
+
+
+      }
+
+
+          #item {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size:100%;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            background-color:#EFF8FF;
+            transition: background-color 0.3s ease-in-out;
+            font-family: 'Garamond', serif;
+    }
+    .container {
+             display: flex;
+             gap: 175px;
+             width: 100%;
+         }
+
+
+         #item:hover{
+               background-color:#CEEAFF;
+
+         }
+
+        #remove {
+          background-color: #333;
+         color: #E4F4FF;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #remove:hover {
+           color: #333;
+           background-color: #E4F4FF;
+        }
+
+       /* #mask1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            display: none;
+        }
+
+        #modal1 {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #626567;
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 2;
+            display: none;
+        }*/
+
+        #name1 {
+            width: 75%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #name1:focus {
+            outline: none;
+            border-color: #4caf50;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #E4F4FF;
+            transition: background-color 0.3s ease-in-out;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            color: #333;
+           background-color: #E4F4FF;
+        }
+        a{
+            text-decoration:none;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+
+<br>
+<div class="container" style="position:relative;left:65px;">
+    <button id="Home">
+        Home page
+    </button>
+
+    <button id="Create">
+        <a href="create.html">
+            Create a quiz
+        </a>
+    </button>
+
+    <button  id="Play">
+        <a href="play.html">
+            Play a quiz
+        </a>
+    </button>
+
+    <button style="border:dashed;" id="Log">
+        <a href="log.html">
+
+            <div th:if="${logat == null}"><b>Profile</b></div>
+            <div th:if="${logat != null}"><i><b><span th:text="${name}"></span></b></i></div>
+
+        </a>
+    </button>
+
+</div>
+<hr>
+<!--<h1>Hi, <i><span th:text="${name}"></span></i></h1> -->
+
+
+<form action="/privatelist" method="POST" style=" max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <div th:if="${list.size()== 0}">
+        <i>No list yet..</i>
+    </div>
+
+    <div th:each="item : ${list}">
+        <button id="item" th:text="${item}" th:value="${item}" name="privatelist"></button>
+        <hr>
+    </div>
+</form>
+
+
+<div style="max-width: 600px; margin: 20px auto; padding: 20px;
+ background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <!-- Container for buttons -->
+    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+        <form action="/back" method="POST">
+            <button style="color: #E4F4FF; background-color: #333;font-size: 75%;">
+                Back
+            </button>
+        </form>
+
+        <form>
+            <button id="remove" style="font-size: 75%; ">
+                Remove list
+            </button>
+        </form>
+
+        <form action="/logOut" method="POST">
+            <button style=" color: #E4F4FF; background-color: #333;font-size: 75%;">
+                Log out
+            </button>
+        </form>
+    </div>
+
+    <!-- Modal and script for removing a list -->
+    <div id="mask1" class="hidden"></div>
+    <section id="modal1" class="hidden" style="background: #626567; padding: 10px; border-radius: 5px;">
+        <form action="/clearList" method="POST">
+            <label for="name1"></label>
+            <input type="text" name="name1" id="name1" placeholder="List name">
+            <input type="submit" value="Remove">
+        </form>
+    </section>
+
+    <script>
+        const btn31 = document.getElementById('remove');
+        const mask1 = document.getElementById('mask1');
+        const modal1 = document.getElementById('modal1');
+        btn31.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default button behavior
+            mask1.classList.remove('hidden');
+            modal1.classList.remove('hidden');
+        });
+        mask1.addEventListener('click', () => {
+            mask1.classList.add('hidden');
+            modal1.classList.add('hidden');
+        });
+    </script>
+</div>
+
+
+
+</body>
+</html>

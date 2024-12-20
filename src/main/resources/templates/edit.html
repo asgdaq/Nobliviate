@@ -1,0 +1,186 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Salut!! <br>Esti in Edit mode.Hai sa incepem</h1>
+
+<form action="/editquiz" method="POST">
+
+    <label for="title">Quiz title :</label><br>
+    <input type="text" id="title" name="title" th:value="${title}" required><br><br>
+
+
+    <label for="category">Category :</label><br>
+
+    <select name="category" id="category" >
+        <option th:each="item : ${list}" th:value="${item}" th:text="${item}" ></option>
+    </select>
+
+    <br>
+    <br>
+
+
+    <label for="textarea">Description :</label><br>
+    <textarea id="textarea" name="textarea" rows="12" cols="50" th:text="${description}"  required>
+
+    </textarea><br><br>
+
+    <label for="note">Note :</label><br>
+    <input type="text" id="note" name="note" th:value="${note}" required><br><br>
+
+
+    <div  th:each="item: ${map}">
+        <input name="keys" th:value="${item.key}"> - >
+        <input name="values" th:value="${item.value}">
+        <br>
+    </div>
+
+
+
+    <input type="submit" id = "submit" value="Continue">
+</form>
+
+
+
+
+<hr>
+
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="icon" href="nobliviateph.png" type="image/png">
+    <link rel="stylesheet" href="style.css"> <!-- Include your external stylesheet if needed -->
+    <style>
+        body {
+                     font-family: 'Garamond', serif;
+            background-color:   #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+        font-family:Garamond, serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+           // font-weight: bold;
+            font-family:Garamond, serif;
+
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+                     font-family:Garamond, serif;
+            font-size: 16px;
+        }
+
+        select {
+              font-family: 'Garamond', serif;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: url('https://imageurl.com/arrow.png') no-repeat;
+            background-position: 95% 50%;
+        }
+
+        input[type="submit"] {
+
+            background-color: #333;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+
+            font-family:Garamond, serif;
+  transition: background-color 0.3s;
+
+        }
+
+        input[type="submit"]:hover {
+            background-color:#FFB3BA;
+            color:#333;
+        }
+
+        hr {
+            border: 1px solid #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<br>
+
+
+<form action="/editquiz" method="POST">
+    <p style="font-size:48px;     color: #333;
+            text-align: center;
+"><b>Welcome to edit mode</b><br></p>
+    <p style="font-size:24px;     color: #333;
+            text-align: center;
+">Let's begin!</p>
+    <hr></hr>
+    <br>
+    <label for="title"><b>Quiz title:</b></label>
+    <input type="text" id="title" name="title" th:value="${title}" required>
+
+    <label for="category"><b>Category:</b></label>
+    <select name="category" id="category">
+        <option th:each="item : ${list}" th:value="${item}" th:text="${item}"></option>
+    </select>
+
+    <label for="textarea"><b>Description:</b></label>
+    <textarea id="textarea" name="textarea" rows="6" cols="50" th:text="${description}" required></textarea>
+
+    <label for="note"><b>Note:</b></label>
+    <input type="text" id="note" name="note" th:value="${note}">
+
+    <label><b>Elements :</b> </label>
+    <div th:each="item: ${map}" style="font-family:Garamond, serif;">
+        <input style="font-family:Garamond, serif;width: 40%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;" name="keys" th:value="${item.key}"> -
+        <input style="font-family:Garamond, serif;width: 40%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;" name="values" th:value="${item.value}">
+        <br>
+    </div>
+    <br>
+    <input type="submit" id="submit" value="Finish">
+</form>
+<hr>
+</body>
+</html>

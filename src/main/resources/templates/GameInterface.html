@@ -1,0 +1,212 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/IMG_8158.ico">
+    <title>Title</title>
+
+</head>
+<body>
+
+<br><br>
+<br><br>
+<br>
+
+<div style="font-size:55px;text-align: center;">
+    <span th:text="${resultat}" >Oscilloscope</span>
+</div>
+
+        <form action="/game" method="POST" style="font-size:25px;text-align:center;" >
+            <label for="question" style="font-size:15px;"><i>Enter answer</i></label><br>
+            <input type="text" name="question" id="question" style="font-size:30px;height:25px;width:550px;"><br><br>
+
+            <input type="submit" name="next" value="Next question:)" style="background-color: #336B87;border: none;
+  color: white;
+  padding: 12px 34px;  font-size: 18px;">
+
+        </form>
+
+
+   <form action="/printtest" method="POST">
+       <button type="submit" style="background-color:#90AFC5;  border: none;
+  color: white;
+  padding: 8px 30px;  font-size: 14px; position:relative;left:650px;top:35px;">Print Quiz</button>
+   </form>
+
+
+<button style="background-color: #2A3132;border: none;
+  color: white;
+  padding: 8px 16px; font-size: 12px;position:relative;left:675px;top:60px;">
+    <a href="/TypeGame.html" style="text-decoration:none;color:white">
+        <i><- Back</i>
+    </a>
+
+</button>
+
+
+
+
+
+<div style="position:relative;left:850px;top:-125px">
+
+    <div th:if="${status}">
+            <p style="color:#336B87;font-size:35px;">
+                Yes!
+            </p>
+    </div>
+
+
+    <div th:unless="${status}">
+        <div th:if="${b > 0 }">
+            <p style="color:#763626;font-size:35px;">
+            No:(
+            </p>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/IMG_8158.ico">
+    <title>Game Interface</title>
+    <link rel="icon" href="nobliviateph.png" type="image/png">
+
+    <style>
+        input[type="submit"] {
+           background-color: #336B87;
+           color: white;
+           cursor: pointer;
+           border: none;
+           border-radius: 5px;
+           padding: 10px 20px;
+           font-size: 16px;
+           transition: background-color 0.3s ease-in-out;
+       }
+
+       input[type="submit"]:hover {
+           background-color: #2A3132;
+       }
+       button {
+         background-color: #2A3132;
+         color: white;
+         padding: 8px 16px;
+         font-size: 14px;
+         border: none;
+         border-radius: 5px;
+         margin-top: 20px;
+         cursor: pointer;
+         transition: background-color 0.3s ease-in-out;
+     }
+
+     button a {
+         text-decoration: none;
+         color: white;
+     }
+
+     button:hover {
+         background-color: #1E2424;
+     }
+    </style>
+
+</head>
+<body style="   background-color: #FEFAE0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;">
+
+<br><br>
+<br><br>
+<br>
+<div style="
+            font-family:Garamond;
+            background-color: #fff;
+            padding:100px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            height: 300px;
+            position:relative;
+            top:-50px;
+            text-align: center;">
+    <div style="font-size:55px;text-align: center;">
+        <span th:text="${resultat}" >Oscilloscope</span>
+    </div>
+    <br>
+
+    <form action="/game" method="POST" style="font-size:25px;text-align:center;            font-family:Garamond;
+" >
+        <label for="question" style="font-size:15px;"><i>Enter answer</i></label><br>
+        <input type="text" name="question" id="question" style="font-size:25px;height:25px;width:400px;
+    border-radius:5px; border-color:grey;"><br><br>
+
+        <input type="submit" name="next" value="Next question:)" style="border: none;
+  color: white;
+  padding: 12px 34px;  font-size: 18px;            font-family:Garamond;
+">
+
+    </form>
+
+
+    <form action="/printtest" method="POST">
+        <button type="submit" style="background-color:#90AFC5;  border: none;
+  color: white;
+  padding: 8px 30px;  font-size: 14px; position:relative;top:15px;font-family:Garamond;
+">Print Quiz</button>
+
+    </form>
+
+
+    <button style="background-color: #2A3132;border: none;            font-family:Garamond;
+
+  color: white;
+  padding: 8px 16px; font-size: 12px;position:relative;top:30px;">
+        <a href="/TypeGame.html" style="text-decoration:none;color:white">
+            <i>Back</i>
+        </a>
+
+    </button>
+
+
+
+
+
+    <div style="position:relative;left:150px;top:-125px;font-family:Garamond;
+">
+
+        <div th:if="${status}">
+            <div th:if="${b >= 0 }">
+                <img th:src="@{Right.png}" alt="Right"  width="80" height="76"
+                     style="position:relative;top:-270px;left:100px;">
+            </div>
+
+        </div>
+
+
+        <div th:unless="${status}">
+            <div th:if="${b >= 0 }">
+                <img th:src="@{Wrong.png}" alt="Wrong" width="80" height="76"
+                     style="position:relative;top:-270px;left:100px;">
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

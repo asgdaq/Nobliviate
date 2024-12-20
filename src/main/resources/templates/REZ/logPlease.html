@@ -1,0 +1,114 @@
+<!---<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>PLease , create an account or log in , <br>
+  to continue to develop your ideas</h1>
+
+<a href="/log.html">
+  <button>Click here!</button>
+</a>
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account or Log In</title>
+    <link rel="stylesheet" href="Menu.css">
+    <link rel="stylesheet" th:href="@{Menu.css}" />
+    <link rel="icon" href="nobliviateph.png" type="image/png">
+    <link href="https://fonts.cdnfonts.com/css/nuixyber-pro-convert" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFB3BA;
+           // margin: 0;
+            //padding: 0;
+            //display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow-x: hidden;
+                overflow-y: hidden;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+        padding: 15px 30px;
+        font-size:125%;
+       // border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        font-family: 'Nuixyber Pro Convert', sans-serif;
+        }
+
+
+
+        a {
+            text-decoration: none;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="position:relative;left:65px;">
+    <button id="Home">
+        Home page
+    </button>
+
+    <button id="Create" style="border:dashed;">
+        <a href="create.html">
+            <b>Create a quiz</b>
+        </a>
+    </button>
+
+    <button id="Play">
+        <a href="play.html">
+            Play a quiz
+        </a>
+    </button>
+
+    <button id="Log">
+        <a href="log.html">
+
+            <div th:if="${logat == null}">Profile</div>
+            <div th:if="${logat != null}"><i><b><span th:text="${name}"></span></b></i></div>
+
+        </a>
+    </button>
+
+</div>
+<hr>
+
+<div style="position:relative;top:50px;">
+
+    <h1 style="font-size:75px; font-family: 'Garamond', serif;color:black">
+        Please create an account or log in to  develop your ideas!
+    </h1>
+
+    <div style="text-align:center;">
+        <a href="/log.html" >
+            <button style="background-color:#BAE1FF;font-size:30px;">Click here!</button>
+        </a>
+    </div>
+</div>
+
+
+
+</body>
+</html>

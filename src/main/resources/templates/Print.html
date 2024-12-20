@@ -1,0 +1,160 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print</title>
+  <link rel="stylesheet" type="text/css" href="print.css" media="print" />
+</head>
+<body>
+
+<br>
+<h3>Fill the gaps with corect word</h3>
+
+
+<span style="white-space: pre-line" th:text="${text}" id="obj"></span>
+
+<hr>
+<p><i>Nobliviate</i></p>
+
+<style type="text/css" media="print">
+   .no-print { display: none; }
+</style>
+
+<div  class="no-print">
+    <button onclick="window.print()" style="background-color: #336B87;border: none;
+  color: white;
+  padding: 13px 20px; font-size: 12px;">Print this quiz</button>
+
+    <button style="background-color: #2A3132;border: none;
+  color: white;
+  padding: 8px 16px; font-size: 12px;position:relative;left:675px;top:60px;">
+        <a href="/infoPlay.html" style="text-decoration:none;color:white">
+            <i>Go to main page</i>
+        </a>
+
+    </button>
+
+</div>
+
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print</title>
+    <link rel="icon" href="nobliviateph.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="print.css" media="print" />
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FEFAE0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h3 {
+            color: #336B87;
+        }
+
+        span {
+            white-space: pre-line;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            width: 80%;
+            border: 1px solid;
+            margin: 20px 0;
+        }
+
+        p {
+            color: #336B87;
+            font-style: italic;
+        }
+
+        .no-print {
+           // display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+           // display: none;
+        }
+
+        button {
+          //  background-color: #336B87;
+            border: none;
+            color: white;
+            padding: 13px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #b2b2b2;
+            foreground:white;
+        }
+    </style>
+</head>
+<body>
+
+<br>
+<h2 style="color:#283618;">Fill the gaps with correct words</h2>
+<br>
+
+<span th:text="${text}" id="obj"></span>
+
+<hr style="background-color:#283618;">
+<p style="color:#283618;"><i>Nobliviate</i></p>
+
+<div class="no-print">
+    <button onclick="printButton()" style="color:#283618;">Print this quiz</button>
+</div>
+
+<div class="no-print">
+    <button style="background-color:#283618;">
+        <a href="/infoPlay.html" style="text-decoration:none;color:white">
+            <i>Go to main page</i>
+        </a>
+    </button>
+</div>
+
+<style>
+    @page {
+        size: auto;
+        margin: 0mm;
+    }
+</style>
+
+<script>
+    function printButton() {
+        var noPrintElements = document.querySelectorAll('.no-print');
+
+        for (var i = 0; i < noPrintElements.length; i++) {
+            noPrintElements[i].style.display = 'none';
+        }
+
+        window.print();
+
+        for (var i = 0; i < noPrintElements.length; i++) {
+            noPrintElements[i].style.display = '';
+        }
+    }
+</script>
+
+
+
+
+
+</body>
+</html>

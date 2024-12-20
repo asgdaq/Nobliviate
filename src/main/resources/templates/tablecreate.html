@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Table - Word Definitions</title>
+    <link rel="icon" href="nobliviateph.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Garamond', serif;
+            background-color: #FFB3BA;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: black;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            font-family: 'Garamond', serif;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #FFB3BA;
+            color: black;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: black;
+            color: #FFB3BA;
+        }
+
+        button {
+            background-color: black;
+            color: #FFB3BA;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #FFB3BA;
+            color: black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            font-size: 16px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            margin: 0 auto; /* Center the table horizontally */
+        }
+
+        th, td {
+            border: 1px solid #FFB3BA;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            border-bottom: 2px solid #FFB3BA;
+            background-color: #fff;
+        }
+
+        td {
+            border-top: 1px solid #FFB3BA;
+            border-left: 1px solid #FFB3BA;
+        }
+
+        td:first-child {
+            border-left: none; /* Remove left border for the first column */
+        }
+
+        tr:last-child td {
+            border-bottom: none; /* Remove bottom border for the last row */
+        }
+    </style>
+</head>
+<body>
+<h1>Table - Word Definitions</h1>
+
+<form id="form" action="/element" method="POST">
+    <input type="text" id="key" name="key" placeholder="Word" required><br><br>
+    <input type="text" id="def" name="def" placeholder="Definition" required><br><br>
+    <input type="submit" value="Add Element">
+</form>
+
+<form action="/finishTable" method="POST">
+    <button style="            font-family: 'Garamond', serif;font-size:18px;">Finish</button>
+</form>
+
+<hr>
+
+<table id="table">
+    <tr>
+        <th>Word</th>
+        <th>Definition</th>
+    </tr>
+    <tr th:each="entry : ${map}">
+        <td th:text="${entry.key}"></td>
+        <td th:text="${entry.value}"></td>
+    </tr>
+</table>
+</body>
+</html>

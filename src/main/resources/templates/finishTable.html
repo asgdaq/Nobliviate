@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link rel="icon" href="nobliviateph.png" type="image/png">
+    <link href="https://fonts.cdnfonts.com/css/nuixyber-pro-convert" rel="stylesheet">
+    <style>
+        body {
+                      font-family:Garamond, serif;
+            background-color: #FFB3BA;
+            margin: 0;
+            padding: 0;
+          //  display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+
+         b {
+            font-size: 1.5rem;
+            color: #336B87;
+        }
+
+        div {
+            font-size: 1.2rem;
+          //  margin-bottom: 15px;
+        }
+
+          table {
+            position: relative;
+            left: 50px;
+            top: 15px;
+            border: 1px solid gray;
+            border-collapse: collapse;
+            width: 80%;
+            font-size: 16px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid gray;
+            padding: 20px;
+            text-align: left;
+        }
+
+        button {
+            background-color: #336B87;
+            border: none;
+          //  color: white;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2A3132;
+        }
+
+        #print {
+            background-color: #BAFFC9;
+        }
+
+        #print:hover {
+            color:#BAFFC9;
+            background-color: black;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        #backBtn {
+            background-color: #2A3132;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            font-size: 1rem;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        #Play{
+            background-color:#FFDFBA;
+        }
+
+        #Play:hover{
+            background-color:black;
+            color:#FFDFBA;
+        }
+    </style>
+
+    <script>
+        function redirectToHello() {
+          // Redirecționează către pagina "/hello"
+          window.location.href = "/homepage.html";
+          // Afișează mesajul
+          alert("Thank you for sharing this amazing quiz with us!!");
+        }
+    </script>
+</head>
+
+<body>
+
+<br>
+<div style="width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fefae0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+
+    <b><h1 style="text-align:center;font-size:32px;  color:black;
+    font-family: 'Nuixyber Pro Convert', sans-serif;">Preview the quiz</h1></b>
+    <form  style=" width: 600px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <p style="font-size: 1.2rem;">Title : <i><span th:text="${title}">r</span></i></p>
+        <p style="font-size: 1.2rem;">Category : <i><span th:text="${category}"></span></i></p>
+        <p style="font-size: 1.2rem;">Description : <i><span th:text="${description}">r</span></i></p>
+        <p style="font-size: 1.2rem;">Note : <i><span th:text="${note}"></span></i></p>
+    </form>
+
+    <form   style=" width: 600px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <table>
+            <tr>
+                <th>Word</th>
+                <th>Definition</th>
+            </tr>
+            <tr th:each="entry : ${map}">
+                <td th:text="${entry.key}"></td>
+                <td th:text="${entry.value}"></td>
+            </tr>
+        </table>
+        <br><br>
+    </form>
+
+    <br>
+    <div style="display:inline;color:black;">
+
+
+
+        <form action="/delete" method="POST" style="display:inline;color:black;">
+            <button style="  background-color:#A84C29;
+             font-family: 'Nuixyber Pro Convert', serif;font-size:25px; background-color:#FFDFBA">Delete Quiz</button>
+        </form>
+
+        <form action="/edit" method="POST" style="display:inline;color:black;">
+            <button style="background-color: #FFFFBA;   font-family: 'Nuixyber Pro Convert', serif;font-size:25px;">Edit Quiz</button>
+        </form>
+
+        <form action="/" style="display:inline;color:black;
+">
+            <button onclick="redirectToHello()" style="background-color:#FFB3BA;font-family: 'Nuixyber Pro Convert', serif;
+            font-size:25px; ">Post</button>
+        </form>
+
+    </div>
+
+
+</div>
+<br>
+
+</body>
+
+</html>

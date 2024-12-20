@@ -1,0 +1,75 @@
+
+      button{
+        margin: 10px;
+        padding: 15px 30px;
+        font-size:150%;
+       // border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        font-family: 'Nuixyber Pro Convert', sans-serif;
+      }
+
+
+
+     .container {
+         display: flex;
+         gap: 175px;
+         width: 100%;
+     }
+
+      #Home{
+        background-color:#FFDFBA;
+        color:black;
+        border-color:black;
+      }
+
+      #Home:hover{
+        background-color:black;
+        color:#FFDFBA;
+        border-color:#FFDFBA
+      }
+
+      #Create{
+        background-color:#FFB3BA;
+        color:black;
+        border-color:black;
+      }
+
+      #Create:hover{
+         background-color:black;
+         border-color:#FFB3BA;
+      }
+
+      #Create:hover a{
+            color:#FFB3BA;
+      }
+
+      #Play{
+         background-color:#BAFFC9;
+         color:black;
+      }
+
+      #Play:hover{
+        background-color:black;
+        border-color:#BAFFC9;
+      }
+
+      #Play:hover a{
+            color:#BAFFC9;
+      }
+
+
+      #Log{
+       background-color:#BAE1FF;
+       color:black;
+      }
+
+       #Log:hover{
+         background-color:black;
+         border-color:#BAE1FF;
+       }
+
+       #Log:hover a{
+          color:#BAE1FF;
+       }

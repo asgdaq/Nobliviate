@@ -1,0 +1,147 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample FirebaseUI App</title>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+
+    <script type="text/javascript">
+      // Firebase config
+     const firebaseConfig = {
+          apiKey: "AIzaSyBUaKK5DPUEPaRcjmL11_VXpk3Vie08Hko",
+          authDomain: "nobliviate-user.firebaseapp.com",
+          projectId: "nobliviate-user",
+          storageBucket: "nobliviate-user.appspot.com",
+          messagingSenderId: "42845434138",
+          appId: "1:42845434138:web:5b1f6a1febbbf3f5823ca3",
+          measurementId: "G-ZY2T0WCQ82"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+
+    <script type="text/javascript">
+      // FirebaseUI config and initialization
+      var uiConfig = {
+        signInSuccessUrl: '/REZ/succes.html',
+        signInOptions: [
+
+          firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+
+        ],
+        tosUrl: 'start.html',
+        privacyPolicyUrl: function() {
+          window.location.assign('/REZ/succes.html');
+        }
+      };
+
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      ui.start('#firebaseui-auth-container', uiConfig);
+
+    </script>
+</head>
+<body>
+<h1>Welcome to  Nobliviate</h1>
+
+<div id="firebaseui-auth-container"></div>
+
+</body>
+
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample FirebaseUI App</title>
+    <link rel="icon" href="nobliviateph.png" type="image/png">
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+    <link href="https://fonts.cdnfonts.com/css/nuixyber-pro-convert" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #FFDFBA;
+                        font-family: 'Nuixyber Pro Convert',serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        #firebase-container-wrapper {
+            text-align: center;
+            padding: 5px;
+            background-color: #506A8C;
+            border-radius: 10px;
+        }
+
+        /* Stil pentru textul "Welcome to Nobliviate" */
+        h2 {
+            color: #336B87; /* Schimbați culoarea la cea dorită, de exemplu, #000000 pentru negru */
+        }
+    </style>
+
+    <script type="text/javascript">
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBUaKK5DPUEPaRcjmL11_VXpk3Vie08Hko",
+            authDomain: "nobliviate-user.firebaseapp.com",
+            projectId: "nobliviate-user",
+            storageBucket: "nobliviate-user.appspot.com",
+            messagingSenderId: "42845434138",
+            appId: "1:42845434138:web:5b1f6a1febbbf3f5823ca3",
+            measurementId: "G-ZY2T0WCQ82"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script type="text/javascript">
+        // FirebaseUI config and initialization
+        var uiConfig = {
+            signInSuccessUrl: '/REZ/succes.html',
+            signInOptions: [
+                firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+            ],
+            tosUrl: 'start.html',
+            privacyPolicyUrl: function () {
+                window.location.assign('/REZ/succes.html');
+            }
+        };
+
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        ui.start('#firebaseui-auth-container', uiConfig);
+
+    </script>
+</head>
+
+<body>
+<!-- Adăugare wrapper pentru a centra conținutul -->
+<div id="firebase-container-wrapper" style="border:none;">
+    <!-- Adăugare frază deasupra chenarului -->
+    <div id="firebaseui-auth-container"></div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="print.css" media="print" />
+</head>
+<body>
+
+<b>Quiz title</b> - > <div th:text="${title}"></div>
+<b>Other details : </b>
+<div th:each="item : ${list}">
+    <span th:text="${item}" th:value="${item}"></span>
+    <br>
+</div>
+
+
+<br>
+<table style=" border:1px solid gray;
+ border-collapse: collapse; width:80% ; font-size:22px;" id="table">
+
+    <tr style="border:1px solid gray;  border-collapse: collapse;">
+        <th style="border:1px solid gray;  border-collapse: collapse;">Word</th>
+        <th style="border:1px solid gray;  border-collapse: collapse;">Definition</th>
+    </tr>
+
+
+    <tr th:each="entry : ${map}" style="border:1px solid gray;  border-collapse: collapse;">
+        <td th:text="${entry.key}" style="border:1px solid gray;  border-collapse: collapse;"></td>
+        <td th:text="${entry.value}" style="border:1px solid gray;  border-collapse: collapse;"></td>
+    </tr>
+</table>
+
+<form action="/playQuiz" method="POST">
+    <button>Play</button>
+</form>
+
+
+<button style="background-color: #336B87;border: none;
+  color: white;
+  padding: 15px 35px;  font-size: 16px;"  id="print">Print List</button>
+
+
+<script class="object">
+    function printData()
+    {
+
+        var divToPrint=document.getElementById("table");
+        newWin= window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.document.close();
+        newWin.print();
+        //newWin.close();
+    }
+
+    document.querySelector("#print").addEventListener("click", function(){
+      printData();
+    });
+
+    </script>
+
+<button style="background-color: #2A3132;border: none;
+  color: white;
+  padding: 8px 16px; font-size: 12px;">
+    <a href="/" style="text-decoration:none;color:white">
+        <i><- Back</i>
+    </a>
+
+</button>
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Details</title>
+    <link rel="icon" href="nobliviateph.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="print.css" media="print" />
+    <link href="https://fonts.cdnfonts.com/css/nuixyber-pro-convert" rel="stylesheet">
+
+    <style>
+        body {
+            font-family:Garamond;
+            background-color: #BAFFC9;
+            margin: 0;
+            padding: 0;
+          //  display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        b {
+            font-size: 1.5rem;
+            color: #336B87;
+        }
+
+        div {
+            font-size: 1.2rem;
+          //  margin-bottom: 15px;
+        }
+
+          table {
+            position: relative;
+            left: 50px;
+            top: 15px;
+            border: 1px solid gray;
+            border-collapse: collapse;
+            width: 80%;
+            font-size: 16px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid gray;
+            padding: 20px;
+            text-align: left;
+        }
+
+        button {
+            background-color: #336B87;
+            border: none;
+          //  color: white;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2A3132;
+        }
+
+        #print {
+            background-color: #BAFFC9;
+        }
+
+        #print:hover {
+            color:#BAFFC9;
+            background-color: black;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        #backBtn {
+            background-color: #2A3132;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            font-size: 1rem;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        #Play{
+            background-color:#FFDFBA;
+        }
+
+        #Play:hover{
+            background-color:black;
+            color:#FFDFBA;
+        }
+
+        b{
+            color:black;
+            font-family:Garamond;
+            font-size: 1.2rem;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+<br>
+<!--<b>Quiz title</b>-->
+<div style="width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fefae0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h1>
+        <div th:text="${title}" style="text-align:center;
+                                  font-size:32px;
+                                   color:black;
+                                    font-family: 'Nuixyber Pro Convert', sans-serif; ">azerty</div></h1>
+
+    <form style=" width: 600px;
+                   // height:auto;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+
+        <!--<div th:each="item : ${list}">
+            <span th:text="${item}" th:value="${item}"></span>
+            <br>
+        </div>-->
+
+        <p style="font-size: 1.2rem;"><b>Description </b>: <span th:text="${descriere}"></span></p>
+        <p style="font-size: 1.2rem;"><b>Note :</b> <span th:text="${note}"></span></p>
+        <p style="font-size: 1.2rem;"><b>Author :</b> <span th:text="${autor}"></span></p>
+    </form>
+
+
+    <form   style="width: 600px;
+            margin: 20px AUTO;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <table id="table">
+            <tr>
+                <th>Word</th>
+                <th>Definition</th>
+            </tr>
+            <tr th:each="entry : ${map}">
+                <td th:text="${entry.key}"></td>
+                <td th:text="${entry.value}"></td>
+            </tr>
+        </table>
+        <br><br>
+    </form>
+
+    <div style="display:inline;color:black;">
+
+        <button  style="  background-color:#FFFFBA;position:relative;left:75px;
+        font-family: 'Nuixyber Pro Convert', sans-serif;">
+            <a href="/" style="color:black;">Back</a>
+        </button>
+
+        <button id="print" style="position:relative; left:175px;
+        font-family: 'Nuixyber Pro Convert', sans-serif;">
+            Print List</button>
+
+
+
+        <form action="/playQuiz" method="POST" >
+            <button style="position:relative; top:-63px;left:525px;
+            font-family: 'Nuixyber Pro Convert', serif;font-size:25px;" id="Play">
+                Play
+            </button>
+        </form>
+
+
+
+        <script class="object">
+            function printData() {
+                var tableContent = document.getElementById("table").outerHTML;
+                var newWin = window.open("");
+                newWin.document.write("<html><head><title>Tabel</title>");
+         newWin.document.write("<style>body{font-family: Arial, sans-serif;} table{position:relative;left:40px; width: 90%; border-collapse: collapse;} table, th, td{border: 1px solid black;} th, td{padding: 8px; text-align: left;}</style>");
+
+                newWin.document.write("<style media='print'>@page { size: auto;  margin: 0mm; }</style>");
+                newWin.document.write("</head><body><br><br>");
+           
+
+                newWin.document.write(tableContent);
+
+                newWin.document.write("<p><i>Nobliviate</i></p>");
+                newWin.document.write("</body></html>");
+                newWin.document.close();
+                newWin.print();
+            }
+
+            document.querySelector("#print").addEventListener("click", function () {
+                printData();
+            });
+        </script>
+    </div>
+
+</div>
+<br>
+
+
+
+</body>
+
+</html>
